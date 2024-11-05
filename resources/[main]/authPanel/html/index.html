@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <style>
+            body {
+                min-width: 100%;
+                min-height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            iframe {
+                min-width: 100%;
+                max-width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+                border: none;
+            }
+        </style>
+
+    </head>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data.action === 'url') {
+                const url = event.data.url;
+                const authPanel = document.getElementById('authPanel')
+                authPanel.innerHTML = `<iframe src='${url}/authPanel'></iframe>`;
+            }
+        });
+    </script>
+    <body id="authPanel"></body>
+</html>
